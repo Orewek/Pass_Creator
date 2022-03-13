@@ -1,4 +1,5 @@
 def checkslash(password: str) -> str:
+    # removes (if we need) _ and - from password
     items = ['_', '-']
     possibilities = {'y', 'yes', '1'}
 
@@ -13,6 +14,8 @@ def checkslash(password: str) -> str:
 
 
 def up_low_dig(password: str) -> str:
+    # removes (if we need) upper letters (ABCD) lower (abcd) and digits
+    # for upper and lower it makes upper -> lower and back
     items = ['upper letters', 'lower letters', 'digits']
     possibilities = {'y', 'yes', '1'}
 
@@ -26,4 +29,5 @@ def up_low_dig(password: str) -> str:
                 password.upper(),
                 ''.join([i for i in password if not i.isdigit()]),
             ][i]
+
     return password
