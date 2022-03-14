@@ -9,12 +9,14 @@ if __name__ == '__main__':
 
     # writing the game/for which for we will use this pass
     # we make it for ctrl + f in file
+
     print("write for which acc/game u will use it")
     name_tag = str(input())
 
     password = secrets.token_urlsafe(length)
     password = password + "_" + name_tag
     password = tp.up_low_dig(tp.checkslash(password))
+
     print(password)
 
 
