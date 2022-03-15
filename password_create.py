@@ -1,12 +1,9 @@
 import secrets
-import unittest
 import tune_password as tp  # importing our fun's
-from test_password import TestPassword
+
 
 if __name__ == '__main__':
     # choosing length for the password
-
-    TestPassword(unittest.TestCase)
     print("which len do we need")
     length = int(input())
 
