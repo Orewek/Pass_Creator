@@ -1,10 +1,13 @@
 import secrets
+import unittest
 import tune_password as tp  # importing our fun's
-
+from test_password import TestPassword
 
 if __name__ == '__main__':
-    # choosing length for password
-    print("which len we need")
+    # choosing length for the password
+
+    TestPassword(unittest.TestCase)
+    print("which len do we need")
     length = int(input())
 
     # writing the game/for which for we will use this pass
@@ -15,7 +18,7 @@ if __name__ == '__main__':
 
     password = secrets.token_urlsafe(length)
     password = password + "_" + name_tag
-    password = tp.up_low_dig(tp.checkslash(password))
+    password = tp.up_low_dig(tp.checkslash(password, 1), 1)
 
     print(password)
 
