@@ -1,46 +1,41 @@
-def checkslash(password: str, test: int) -> str:
-    # removes (if we need) _ and - from password
+def tune_io(password: str) -> str:
     items = ['_', '-']
-    possibilities = {'y', 'yes', '1'}
-    # test, using for unitTests
 
-    for i in range(len(items)):
-        if test == 0:
-            for item in items:
-                password = password.replace(f'{item}', '')
-                return password
+    print(f'choose and write symbobls from {items} '
+          f'without spaces and commas that we need to delete \n'
+          f'if u dont need to press enter')
 
-        print(f'do we need to remove {items[i]} in password? write 1, y, yes')
-        check_letter = input()
-        if(check_letter.lower() in possibilities):
+    symbols = input()
+    if symbols is not None:
+        password = tune_symbols(password, symbols)
 
-            password = password.replace(f'{items[i]}', '')
+    items = ['up', 'low', 'dig']
+    print(f'choose and write words from {items} '
+          f'without spaces and commas that we need to delete \n'
+          f'if u dont need to press enter \n'
+          f'for example: low deleting whole lower letters from the pass')
+
+    symbols = input()
+    if symbols is not None:
+        password = up_low_dig(password, symbols)
 
     return password
 
 
-def up_low_dig(password: str, test: int) -> str:
-    # removes (if we need) upper letters (ABCD) lower (abcd) and digits
-    # for upper and lower it makes upper -> lower and back
-    items = ['upper letters', 'lower letters', 'digits']
-    possibilities = {'y', 'yes', '1'}
-    # test, using for unitTests
+def tune_symbols(password: str, chars: str) -> str:
+    for char in chars:
+        password = password.replace(char, '')
+    return password
 
-    for i in range(len(items)):
-        if test == 0:
-            for item in items:
-                password = password.replace(f'{item}', '')
-                return password
 
-        print(f'do we need to remove {items[i]}? write 1, y, yes')
-        check_letter = input()
-
-        if(check_letter.lower() in possibilities):
-            password = [
-                password.lower(),
-                password.upper(),
-                ''.join([i for i in password if not i.isdigit()]),
-            ][i]
+def up_low_dig(password: str, types: str) -> str:
+    # removes leters/digits from the pass if we need to
+    if 'up' in types:
+        password = password.lower()
+    if 'low' in types:
+        password = password.upper()
+    if 'dig' in types:
+        password = ''.join([i for i in password if not i.isdigit()])
 
     return password
 

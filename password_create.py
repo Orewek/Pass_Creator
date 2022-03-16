@@ -13,11 +13,11 @@ if __name__ == '__main__':
     print("write for which acc/game u will use it")
     name_tag = str(input())
 
-    password = secrets.token_urlsafe(length)
-    password = password + "_" + name_tag
-    password = tp.up_low_dig(tp.checkslash(password, 1), 1)
+    password = secrets.token_urlsafe(10**5)
+    password = name_tag + "_" + password
+    password = tp.tune_io(password)
 
-    print(password)
+    print(password[:length])
 
 
 '''
