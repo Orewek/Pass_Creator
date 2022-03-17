@@ -14,7 +14,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    path = r"C:\Users\D.Charykov\!prog\vscode\pass_save.txt"
+    path = r"D:\passwords.txt"
     if (True):
         await message.channel.send(file=discord.File(path))
 

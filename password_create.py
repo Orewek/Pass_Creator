@@ -1,5 +1,5 @@
 import secrets
-import tune_password as tp  # importing our fun's
+from tune_password.tune_io import symbols_io, comments_io  # importing our fun's
 
 
 def main():
@@ -14,18 +14,22 @@ def main():
     name_tag = str(input())
 
     password = name_tag + "_" + secrets.token_urlsafe(10**5)
-    password = tp.tune_io(password)[:length]
+    password = symbols_io(password)[:length]
 
+    print(f'\npassword was created successfully! the pass is - {password} \n')
+    password = comments_io(password)
     print(password)
 
     # saving this password in our .txt file
+    '''
     with open("pass_save.txt", "a+") as f:
         f.write(f"\n{password}")
 
     print('do we need to add one more password? \n'
           'type smth if yes, or just press enter if no')
+    '''
 
 
 if __name__ == '__main__':
-    import send_to_ds
-    exec(send_to_ds)
+    main()
+    # import send_to_ds
