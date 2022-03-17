@@ -1,16 +1,19 @@
-from tune_password.tune_logic import tune_symbols, up_low_dig, add_comments
+from tune_password.tune_logic import tune_special_symbols, sanitize_password, add_comments
 
 
-def symbols_io(password: str) -> str:
+def remove_excess_password_io(password: str) -> str:
+    """
+    firstly removes _ and - for the password
+    secondly change lower => upper; upper => lower; removes digits
+    """
     items = ['_', '-']
 
-    print(f'choose and write symbobls from {items} '
-          f'without spaces and commas that we need to delete \n'
+    print(f'choose and write symbobls from {items} without spaces and commas that we need to delete \n'
           f'if u dont need to press enter')
 
     symbols = input()
     if symbols is not None:
-        password = tune_symbols(password, symbols)
+        password = tune_special_symbols(password, symbols)
 
     items = ['up', 'low', 'dig']
     print(f'choose and write words from {items} that we need to delete \n'
@@ -19,15 +22,20 @@ def symbols_io(password: str) -> str:
 
     symbols = input()
     if symbols is not None:
-        password = up_low_dig(password, symbols.lower())
+        password = sanitize_password(password, symbols.lower())
 
     return password
 
 
-def comments_io(password: str) -> str:
+def comments_to_password_io(password: str) -> str:
+    """
+    adding comment to the password
+    it can help u have a few accs in 1 store
+    can add some info about password; (-time: creation data), (-len: length)
+    """
+
     print('U can add some comments to password, it can help u if: \n'
-          'U have a few accs in 1 app (steam for example). '
-          'U wanna see the creation data, length etc. \n'
+          'U have a few accs in 1 app (steam for example). U wanna see the creation data, length etc. \n'
           'firsly write u commentary, after that (-time: creation data), (-len: length)'
           'press enter u dont want to have it')
 

@@ -1,14 +1,20 @@
 import datetime
 
 
-def tune_symbols(password: str, chars: str) -> str:
+def tune_special_symbols(password: str, chars: str) -> str:
+    """
+    have a str of chars that we need to remove
+    removes that by .replace
+    """
     for char in chars:
         password = password.replace(char, '')
     return password
 
 
-def up_low_dig(password: str, types: str) -> str:
-    # removes leters/digits from the pass if we need to
+def sanitize_password(password: str, types: str) -> str:
+    """
+    changes lower => upper; upper => lower; deleting digits from the password
+    """
     if 'up' in types:
         password = password.lower()
     if 'low' in types:
@@ -20,6 +26,11 @@ def up_low_dig(password: str, types: str) -> str:
 
 
 def add_comments(password: str, comment: str) -> str:
+    """
+    adding comment to password
+    pass + comment + data info about password
+    data - length, creation data, etc
+    """
     data = '// '
     creation_date = datetime.datetime.now()
     if '-time' in comment:
