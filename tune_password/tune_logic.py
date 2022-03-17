@@ -1,3 +1,6 @@
+import datetime
+
+
 def tune_symbols(password: str, chars: str) -> str:
     for char in chars:
         password = password.replace(char, '')
@@ -18,9 +21,10 @@ def up_low_dig(password: str, types: str) -> str:
 
 def add_comments(password: str, comment: str) -> str:
     data = '// '
+    creation_date = datetime.datetime.now()
     if '-time' in comment:
         comment = comment.replace('-time', '')
-        data += 'creation date - xx:xx:xx' + ' // '
+        data += f'creation date - {creation_date}' + ' // '
 
     if '-len' in comment:
         comment = comment.replace('-len', '')

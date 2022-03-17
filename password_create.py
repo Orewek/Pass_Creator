@@ -1,4 +1,5 @@
 import secrets
+import os
 from tune_password.tune_io import symbols_io, comments_io  # importing our fun's
 
 
@@ -28,6 +29,7 @@ def main():
     print('do we need to add one more password? \n'
           'type smth if yes, or just press enter if no')
     '''
+    os.system("pause")
 
 
 if __name__ == '__main__':
