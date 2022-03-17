@@ -18,7 +18,7 @@ class TestPassword(unittest.TestCase):
 
     def test_comment(self):
         password = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3'
-        comment = 'barak obama // length - 30'
+        comment = 'barak -lenobama'
         password_with_comment = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3 barak obama // length - 30'
 
         self.assertTrue(add_comments(password, comment), password_with_comment)
