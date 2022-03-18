@@ -1,4 +1,4 @@
-#Create a password
+# Create a password
 ###### And send this to discord by the password bot
 
 ## Usage
@@ -8,13 +8,13 @@ Install with `pip install -r requirements.txt`
 
 #### Methods
 * `main` - main, the core of the program
-* `remove_excess_password_io` - 1st: removes `_ -`, 2nd: removes `lower, upper, digits` from the password
+* `remove_excess_password_io` - 1st: removes `_ -` 2nd: removes `lower, upper, digits` from the password
     * `tune_special_symbols` - logic part for the `1st` one
     * `sanitize_password` - logic part for the `2nd` one
 * `comments_to_password_io` - add comments to the password
     * `add_comments` - logic part
 * `on_ready` - start up the `discord bot`
-* `on_message` - sends `.txt file` to `discord`
+* `on_message` - sends `.txt file` with passwords to `discord`
 
 ## Release History
 * 0.3.0 - Add `readme.md` and `requirements.txt`
