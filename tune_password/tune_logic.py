@@ -31,7 +31,7 @@ def add_comments(password: str, comment: str) -> str:
     pass + comment + data info about password
     data - length, creation data, etc
     """
-    data = '// '
+    data = ' // '
     creation_date = datetime.datetime.now()
     if '-time' in comment:
         comment = comment.replace('-time', '')
