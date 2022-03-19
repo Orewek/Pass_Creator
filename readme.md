@@ -2,6 +2,7 @@
 ## Usage
 Install with `pip install -r requirements.txt`
 ## Explanation how it works on user-level
+![screenshot](https://raw.githubusercontent.com/Orewek/somestuff/master/explain.gif)
 ### For programmer
 * User type `the length` of the new password
 * User types the `tag`. It will help to find the exact password in `.txt` later
