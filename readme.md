@@ -8,7 +8,8 @@ Install with `pip install -r requirements.txt`
 * User types the `tag`. It will help to find the exact password in `.txt` later
 * User can remove `_ , -, lower, upper, digits` from the password
 * User can add some `comments` to the password
-* Program saves it in `pass.txt`
+* Program saves into exact `pass.txt` that user wants (as the `default` `C:\passwords.txt`)
+
 * Bot can `send` this `txt` file into the `discord`, if user will type a command for that
 
 ### For user 
@@ -16,7 +17,7 @@ Install with `pip install -r requirements.txt`
 * Write for what u will use it. It will help u to find the exact password that u looking for just by CTRL + F
 * Remove `- _` from your password if u need to
 * Add some `comments` to your password, it can help you, if you have a few accounts in 1 place (steam, for example)
-* Save this password to your `pass.txt`
+* Save this password into the exact `pass.txt` that u want
 * U can send this file to discord channel by the bot (it will sends `.txt` into the chat)
 
 
@@ -29,6 +30,9 @@ Install with `pip install -r requirements.txt`
     * `sanitize_password` - logic part for the `2nd` one
 * `comments_to_password_io` - add comments to the password
     * `add_comments` - logic part
+* `save_into_txt_io` - save in `exact` `file.txt` that u want
+    * `default_save` - `default` save into `C:\passwords.txt`
+    * `user_path_save` - save into user `file.txt`
 * `on_ready` - start up the `discord bot`
 * `on_message` - sends `.txt file` with passwords to `discord`
 
@@ -76,6 +80,15 @@ password = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3'
 comment = 'barak -lenobama' #also it can be 'barak obama-len' 'barak obama -len' etc
 password_with_comment = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3 barak obama // length - 30'
 ```
+##### save_logic.user_path
+```py
+
+def user_path_save(password: str, txt_path: str):
+    path = rf'{txt_path}'
+    with open(path, "a+") as f:
+        f.write(f"\n{password}")
+        print(f'Your password was succesfully saved into {path}')
+```
 ##### discord bot
 ```py
 client = discord.Client()
@@ -101,7 +114,9 @@ async def on_message(message):
 client.run(ds_token)
 ```
 ## Release History
-* 0.3.0.1 Add fun's code, more explanation as for programmers and as for users into `readme.md`
+* 0.4.0 - Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
+    * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//`
+* 0.3.0.1 - Add fun's code, more explanation as for programmers and as for users into `readme.md`
 * 0.3.0 - Add `readme.md` and `requirements.txt`
 * 0.2.3.1 - Minor fixes
 * 0.2.3 - Add `__doc__` to whole `funs` into the code
@@ -111,7 +126,7 @@ client.run(ds_token)
 * 0.2.0 - Add `discord bot` and `.env` to `.gitigrone`
 * 0.1.4 - separate `funs` to `logic` and `io`
 * 0.1.3.1 - Make `avto` `unitTests` user dont need to write `test` or smth else for that
-* 0.1.3 - Add `unitTests` and `__name == '__main__` for whole files
+* 0.1.3 - Add `unitTests` and `__name == '__main__'` for whole files
 * 0.1.2 - Add comments for some funs and `main()`
 * 0.1.1 - Add `.gitignore`
 * 0.1.0 - Initial release

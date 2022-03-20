@@ -8,7 +8,7 @@ def remove_excess_password_io(password: str) -> str:
     """
     items = ['_', '-']
 
-    print(f'choose and write symbobls from {items} without spaces and commas that we need to delete \n'
+    print(f'\nchoose and write symbobls from {items} without spaces and commas that we need to delete \n'
           f'if u dont need to press enter')
 
     symbols = input()
@@ -16,7 +16,7 @@ def remove_excess_password_io(password: str) -> str:
         password = tune_special_symbols(password, symbols)
 
     items = ['up', 'low', 'dig']
-    print(f'choose and write words from {items} that we need to delete \n'
+    print(f'\nchoose and write words from {items} that we need to delete \n'
           f'if u dont need to press enter \n'
           f'for example: low deleting whole lower letters from the password')
 
@@ -34,9 +34,9 @@ def comments_to_password_io(password: str) -> str:
     can add some info about password; (-time: creation data), (-len: length)
     """
 
-    print('U can add some comments to password, it can help u if: \n'
+    print('\nU can add some comments to password, it can help u if: \n'
           'U have a few accs in 1 app (steam for example). U wanna see the creation data, length etc. \n'
-          'firsly write u commentary, after that (-time: creation data), (-len: length)'
+          'firsly write u commentary, after that (-time: creation data), (-len: length) \n'
           'press enter u dont want to have it')
 
     comment = str(input())
