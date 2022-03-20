@@ -41,7 +41,10 @@ def add_comments(password: str, comment: str) -> str:
         comment = comment.replace('-len', '')
         data += f'length - {len(password)}'
 
-    password += ' ' + comment + data
+    if data != ' // ':
+        password += ' ' + comment + data
+    else:
+        password += ' ' + comment
 
     return password
 
