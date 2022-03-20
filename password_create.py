@@ -1,7 +1,9 @@
 import secrets
 import os
-from tune_password.tune_io import remove_excess_password_io, comments_to_password_io  # importing our fun's
+from tune_password.tune_io import remove_excess_password_io, comments_to_password_io
 from save_password.save_io import save_into_txt_io
+from what_send_ds.what_send_io import what_send_ds_io
+from send_to_ds import bot
 
 
 def main():
@@ -23,7 +25,9 @@ def main():
     print(f'\n{password}\n')
 
     # saving this password in our .txt file
-    save_into_txt_io(password)
+
+    txt_path = save_into_txt_io(password)
+    res_path = what_send_ds_io(txt_path)
 
     '''
     # imma do this later
@@ -32,8 +36,9 @@ def main():
     '''
 
     os.system("pause")
+    bot(res_path)
 
 
 if __name__ == '__main__':
     main()
-    # import send_to_ds
+    import send_to_ds
