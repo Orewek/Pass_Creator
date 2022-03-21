@@ -2,15 +2,14 @@
 ## Usage
 Install with `pip install -r requirements.txt`
 ## Explanation how it works on user-level
-![screenshot](https://gfycat.com/SilkyAnxiousDeinonychus-mobile.gif)
 ### For programmer
 * User type `the length` of the new password
 * User types the `tag`. It will help to find the exact password in `.txt` later
 * User can remove `_ , -, lower, upper, digits` from the password
 * User can add some `comments` to the password
 * Program saves into exact `pass.txt` that user wants (as the `default` `C:\passwords.txt`)
-
 * Bot can `send` this `txt` file into the `discord`, if user will type a command for that
+
 
 ### For user 
 * Write a `length` that u want for your password
@@ -33,6 +32,10 @@ Install with `pip install -r requirements.txt`
 * `save_into_txt_io` - save in `exact` `file.txt` that u want
     * `default_save` - `default` save into `C:\passwords.txt`
     * `user_path_save` - save into user `file.txt`
+* `what_send_ds_io` - choose `wheres to save` your password and `which file` bot should `send` to you
+    * `add_new_path` - add a new path to `pass_ways.txt`. After that u `can choose` form this list `exact` file
+    * `whole_path_list` - just showing this `list with whole paths` into it
+    * `choose_the_path` - user choose `exact` file that bot should send into the chat
 * `on_ready` - start up the `discord bot`
 * `on_message` - sends `.txt file` with passwords to `discord`
 
@@ -82,12 +85,53 @@ password_with_comment = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3 barak obama // length - 
 ```
 ##### save_logic.user_path
 ```py
+def default_save(password: str, default_path: str):
+    """adding a new password to the file"""
+    with open(default_path, "a+") as f:
+        f.write(f"\n{password.strip()}")
+
 
 def user_path_save(password: str, txt_path: str):
+    """adding a new password to a user-path file"""
     path = rf'{txt_path}'
     with open(path, "a+") as f:
         f.write(f"\n{password}")
-        print(f'Your password was succesfully saved into {path}')
+```
+##### what_send_logic
+```py
+pass_ways = pathlib.Path(__file__).parent / 'pass_ways.txt'
+
+
+def add_new_path(file_path: str, path: str):
+    """Add a path entry to a text file. If the path already exists do nothing."""
+    with open(file_path, "a+") as file:
+        file.seek(0)
+        if path not in file.read().splitlines():
+            file.write(f'\n{path.strip()}')
+
+
+def whole_path_list(pass_ways: str):
+    """
+    numerate every path into the file
+    pass_ways - file.txt with whole ways to passwords.txt (user can make a few)
+    """
+    with open(pass_ways, 'r') as f:
+        res = f.read().splitlines()
+        for count, re in enumerate(res):
+            print(count, re)
+
+
+def choose_the_path(pass_ways: str, what_we_need: int):
+    """
+    return a exact path that user want
+    pass_ways - file.txt with whole ways to passwords.txt (user can make a few)
+    """
+    with open(pass_ways, 'r') as f:
+        res = f.read().splitlines()
+
+        for count, re in enumerate(res):
+            if count == what_we_need:
+                return re
 ```
 ##### discord bot
 ```py
@@ -114,19 +158,18 @@ async def on_message(message):
 client.run(ds_token)
 ```
 ## Release History
+* 0.4.1 - Add a `unitTests` for new fun
 * 0.4.0 - Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
     * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//`
-* 0.3.0.1 - Add fun's code, more explanation as for programmers and as for users into `readme.md`
+    * 0.4.1 - Now u can choose which `txt` file bot sends to u
 * 0.3.0 - Add `readme.md` and `requirements.txt`
-* 0.2.3.1 - Minor fixes
-* 0.2.3 - Add `__doc__` to whole `funs` into the code
+    * 0.3.0.1 - Add fun's code, more explanation as for programmers and as for users into `readme.md`
 * 0.2.2 - Add `param` for comments. `-len`: length of the pass, `-time`: creation date
-* 0.2.1 - Add `comments` to the password and 1 `unitTest` for that
+    * Add `__doc__` to whole `funs` into the code
 * 0.2.0.1 - Add a folders for `io` and `logic`
+    * Add `comments` to the password and 1 `unitTest` for that
 * 0.2.0 - Add `discord bot` and `.env` to `.gitigrone`
-* 0.1.4 - separate `funs` to `logic` and `io`
-* 0.1.3.1 - Make `avto` `unitTests` user dont need to write `test` or smth else for that
-* 0.1.3 - Add `unitTests` and `__name == '__main__'` for whole files
-* 0.1.2 - Add comments for some funs and `main()`
-* 0.1.1 - Add `.gitignore`
+* 0.1.3 - separate `funs` to `logic` and `io`
+* 0.1.2 - Add `unitTests` and `__name == '__main__'` for whole files
+* 0.1.1 - Add `.gitignore` and `comments` for some funs and `main()`
 * 0.1.0 - Initial release

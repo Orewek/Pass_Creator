@@ -25,8 +25,9 @@ def main():
     print(f'\n{password}\n')
 
     # saving this password in our .txt file
-
     txt_path = save_into_txt_io(password)
+
+    # choosing which path should bot send to ds
     res_path = what_send_ds_io(txt_path)
 
     '''
@@ -36,9 +37,9 @@ def main():
     '''
 
     os.system("pause")
+    # starting bot
     bot(res_path)
 
 
 if __name__ == '__main__':
     main()
-    import send_to_ds
