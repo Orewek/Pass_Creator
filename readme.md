@@ -158,7 +158,7 @@ async def on_message(message):
 client.run(ds_token)
 ```
 ## Release History
-* 0.4.1 - Add a `unitTests` for new fun
+* 0.4.2 - Add a `unitTests` for new fun
 * 0.4.0 - Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
     * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//`
     * 0.4.1 - Now u can choose which `txt` file bot sends to u
