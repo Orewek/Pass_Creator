@@ -2,3 +2,4 @@ C:\password.txt
 D:\pass.txt
 D:\gaben.passwordcsgo.txt
 D:\teamf2.txt
+D:\gaben.password.txt

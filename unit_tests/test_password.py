@@ -4,6 +4,7 @@ import pathlib
 from tune_password.tune_logic import tune_special_symbols, sanitize_password, add_comments
 from save_password.save_logic import default_save, user_path_save
 from what_send_ds.what_send_logic import add_new_path, whole_path_list, choose_the_path
+from learn_password.learn_logic import letter_to_word
 
 
 class TestPassword(unittest.TestCase):
@@ -30,6 +31,13 @@ class TestPassword(unittest.TestCase):
         password_with_comment = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3 barak obama // length - 30'
 
         self.assertEqual(add_comments(password, comment), password_with_comment)
+
+    # LEARN PASSWORD BLOCK
+    def test_learn_letter_to_word(self):
+        password = 'dIhEapWDKAvMLd3Y'
+        res_should_be = 'drip IPHONE hulu EGG apple park WALMART DRIP KOREAN APPLE visa MUSIC LAPTOP drip 3 YELP'
+        res_we_have = letter_to_word(password)
+        self.assertEqual(res_should_be, res_we_have)
 
     # SAVE A PASSWORD BLOCK
     def test_default_save(self):

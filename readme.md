@@ -6,6 +6,7 @@ Install with `pip install -r requirements.txt`
 * User type `the length` of the new password
 * User types the `tag`. It will help to find the exact password in `.txt` later
 * User can remove `_ , -, lower, upper, digits` from the password
+* To easier learn this password user gets the learn_code 
 * User can add some `comments` to the password
 * Program saves into exact `pass.txt` that user wants (as the `default` `C:\passwords.txt`)
 * Bot can `send` this `txt` file into the `discord`, if user will type a command for that
@@ -15,6 +16,7 @@ Install with `pip install -r requirements.txt`
 * Write a `length` that u want for your password
 * Write for what u will use it. It will help u to find the exact password that u looking for just by CTRL + F
 * Remove `- _` from your password if u need to
+* Learn your password, program will show u a words which will help you in that
 * Add some `comments` to your password, it can help you, if you have a few accounts in 1 place (steam, for example)
 * Save this password into the exact `pass.txt` that u want
 * U can send this file to discord channel by the bot (it will sends `.txt` into the chat)
@@ -29,6 +31,8 @@ Install with `pip install -r requirements.txt`
     * `sanitize_password` - logic part for the `2nd` one
 * `comments_to_password_io` - add comments to the password
     * `add_comments` - logic part
+* `learn_io` - learn_code to easier learn the password
+    * `learn_logic` - logic part
 * `save_into_txt_io` - save in `exact` `file.txt` that u want
     * `default_save` - `default` save into `C:\passwords.txt`
     * `user_path_save` - save into user `file.txt`
@@ -63,6 +67,24 @@ return password
 
 password = '63fFZ-6wUnj_C_fDSFfVQeT2uM9KGD54AQpa1NrL2nlBVzIba7LdUSYj7O'
 password_without_digits_and_lower = 'FFZ-WUNJ_C_FDSFFVQETUMKGDAQPANRLNLBVZIBALDUSYJO'
+```
+##### learn_password
+```py
+'a': 'apple',
+'b': 'bestbuy',
+'c': 'coffee',
+...
+'z': 'zip',
+
+res = ''
+
+for i in range(len(password)):
+    res += f'{switcher[password[i]]} '
+
+return res.strip()
+
+password = 'vmLh3Det'
+learn_code = 'visa music LAPTOP hulu 3 DRIP egg tokyo'
 ```
 ##### add_comments
 ```py
@@ -158,6 +180,8 @@ async def on_message(message):
 client.run(ds_token)
 ```
 ## Release History
+* 0.5.0 - Add a `learn_password`, now user can easier learn it. For example `a - apple, U - USA`
+    * Add `__doc__` and `unitTests` for new `fun: letter_to_word()`
 * 0.4.2 - Add a `unitTests` for new fun
 * 0.4.0 - Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
     * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//`
