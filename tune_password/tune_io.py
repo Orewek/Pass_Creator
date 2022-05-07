@@ -33,7 +33,6 @@ def comments_to_password_io(password: str) -> str:
     it can help u have a few accs in 1 store
     can add some info about password; (-time: creation data), (-len: length)
     """
-
     print('\nU can add some comments to password, it can help u if: \n'
           'U have a few accs in 1 app (steam for example). U wanna see the creation data, length etc. \n'
           'firsly write u commentary, after that (-time: creation data), (-len: length) \n'

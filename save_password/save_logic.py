@@ -1,5 +1,8 @@
 def default_save(password: str, default_path: str):
-    """adding a new password to the file"""
+    """
+    adding a new password to the default path file
+    default_path = r'C:[back slash]passwords.txt'
+    """
     with open(default_path, "a+") as f:
         f.write(f"\n{password.strip()}")
 

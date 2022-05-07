@@ -1,4 +1,5 @@
 def letter_to_word(password: str) -> str:
+    """ a list with the letters, which turns into the letters """
     switcher = {
         'a': 'apple',
         'b': 'bestbuy',

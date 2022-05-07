@@ -3,6 +3,7 @@ from dstoken import ds_token
 
 
 def bot(txt_path: str):
+    """turning on the bot, sending the .txt"""
     client = discord.Client()
 
     @client.event

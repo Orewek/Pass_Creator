@@ -39,6 +39,17 @@ def main():
 
 
 def main():
+    """
+    main part (the body/core) which contains whole funs
+
+    1. choosing length ->  ∈[1; +∞], ∈ ℤ
+    2. Writing tag -> tag_password -> dota_SDAjnweg[odsfGB123123]
+    3. Removing _ and - from the password -> dota_123hn-asdf-2 / dota123hnasdf2
+    4. "special code" for password (to learn it) -> l2U / loop 2 USA
+    5. Adding some comments to password -> "password" my pass for dota // length - 30 (-len)
+    6. Saving password to .txt file
+    7. Turning on the discord bot which can send this .txt to the chat
+    """
     # choosing length for the password
     print("which len do we need")
     password_length = int(input())

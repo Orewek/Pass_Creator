@@ -182,6 +182,7 @@ client.run(ds_token)
 ## Release History
 * 0.5.0 - Add a `learn_password`, now user can easier learn it. For example `a - apple, U - USA`
     * Add `__doc__` and `unitTests` for new `fun: letter_to_word()`
+    *  P.S. Even more `__doc__`'s  
 * 0.4.2 - Add a `unitTests` for new fun
 * 0.4.0 - Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
     * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//`

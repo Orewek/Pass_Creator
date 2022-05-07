@@ -1,1 +1,2 @@
+"""libs that u need to install to use my program"""
 discord.py==1.7.3
