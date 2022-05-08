@@ -41,8 +41,8 @@ class TestPassword(unittest.TestCase):
 
     # SAVE A PASSWORD BLOCK
     def test_default_save(self):
-        default_path_start = pathlib.Path(__file__).parent / r'first_file_test\default_save_start.txt'
-        default_path_end = pathlib.Path(__file__).parent / r'first_file_test\default_save_end.txt'
+        default_path_start = pathlib.Path(__file__).parent / r'default_file_test\default_save_start.txt'
+        default_path_end = pathlib.Path(__file__).parent / r'default_file_test\default_save_end.txt'
         password = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3'
 
         open(default_path_start, "w").close()
@@ -51,19 +51,20 @@ class TestPassword(unittest.TestCase):
         self.assertTrue(filecmp.cmp(default_path_start, default_path_end))
 
     def test_user_path_save(self):
-        user_path_start = pathlib.Path(__file__).parent / r'second_file_test\user_save_start.txt'
-        user_path_end = pathlib.Path(__file__).parent / r'second_file_test\user_save_end.txt'
+        user_path_start = pathlib.Path(__file__).parent / r'user_path_save_test\user_save_start.txt'
+        user_path_end = pathlib.Path(__file__).parent / r'user_path_save_test\user_save_end.txt'
         password = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3'
 
         open(user_path_start, "w").close()
         user_path_save(password, user_path_start)  # file 1 (file 2 already has the pass inside)
+        user_path_save(password * 2, user_path_start)
 
         self.assertTrue(filecmp.cmp(user_path_start, user_path_end))
 
     # SEND TO DISCORD BLOCK
     def test_add_new_path(self):
-        save_pass_start = pathlib.Path(__file__).parent / r'save_first_test\test_pass_ways.txt'
-        save_pass_end = pathlib.Path(__file__).parent / r'save_first_test\test_pass_ways2.txt'
+        save_pass_start = pathlib.Path(__file__).parent / r'paths_to_txt_ds\test_pass_ways.txt'
+        save_pass_end = pathlib.Path(__file__).parent / r'paths_to_txt_ds\test_pass_ways2.txt'
         path = r'D:\gabe\csgo\moment'
 
         open(save_pass_start, "w").close()

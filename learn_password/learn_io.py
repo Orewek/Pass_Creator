@@ -8,7 +8,7 @@ def learn_io(password: str):
     """
 
     remember_password = letter_to_word(password)
-    print(f'Remember your password:\n{remember_password}\n'
+    print(f'\nRemember your password:\n{remember_password}\n'
           f'Copy or write that on the paper, program will NOT save this words! \n')
 
 

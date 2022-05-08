@@ -17,9 +17,11 @@ def bot(txt_path: str):
             # waiting when user will type smth in chat
             return
 
-        if (True):
+        if message.channel.name == 'bot':
+            if message.content == 'info' or message.content == 'help':
+                await message.channel.send('write file or send')
             # sending .txt with our passwords
-            path = txt_path
-            await message.channel.send(file=discord.File(path))
+            if message.content == 'send' or message.content == 'file':
+                await message.channel.send(file=discord.File(txt_path))
 
     client.run(ds_token)

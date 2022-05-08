@@ -15,6 +15,7 @@ def main():
     3. "special code" for password (to learn it) -> l2U / loop 2 USA
     4. Adding some comments to password -> "password" my pass for dota // length - 30 (-len)
     5. Saving password to .txt file
+    6. Turning on the discord bot which can send this .txt to the chat
     """
     switcher = {
         '1': create_password,
@@ -22,10 +23,11 @@ def main():
         '3': learn_io,
         '4': comments_to_password_io,
         '5': save_into_txt_io,
+        '6': bot
     }
 
     print('\nWtire digits (together) in ascending order:\n'
-          'Rememember, u cant make 1 + smth else, u choose  ONLY 1st or 2-5 funs\n'
+          'Rememember, u cant make 1 + smth else, u choose  ONLY 1st or 2-6 funs\n'
           '1: create_password\n'
           '2: remove_excess\n'
           '3: learn\n'
@@ -81,7 +83,7 @@ def create_password():
     print(f'\npassword was created successfully! the pass is - {password}')
 
     # turns letters to words, that helps to remember the password
-    learn_io(password)
+    if len(password) <= 25: learn_io(password)
 
     password = comments_to_password_io(password)
     print(f'\n{password}\n')
