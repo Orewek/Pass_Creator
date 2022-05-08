@@ -1,5 +1,5 @@
 import discord
-from dstoken import ds_token
+from ds_bot.dstoken import ds_token
 
 
 def bot(txt_path: str):

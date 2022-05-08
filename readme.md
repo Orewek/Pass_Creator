@@ -180,21 +180,33 @@ async def on_message(message):
 client.run(ds_token)
 ```
 ## Release History
-* 0.5.0 - Add a `learn_password`, now user can easier learn it. For example `a - apple, U - USA`
-    * Add `__doc__` and `unitTests` for new `fun: letter_to_word()`
-    *  P.S. Even more `__doc__`'s  
-* 0.4.2 - Add a `unitTests` for new fun
-* 0.4.0 - Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
-    * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//`
-    * 0.4.1 - Now u can choose which `txt` file bot sends to u
-* 0.3.0 - Add `readme.md` and `requirements.txt`
-    * 0.3.0.1 - Add fun's code, more explanation as for programmers and as for users into `readme.md`
-* 0.2.2 - Add `param` for comments. `-len`: length of the pass, `-time`: creation date
+* 0.5.1
+    * Now User can do only a few steps (for example add a comment) for `already` created password
+    * Project restructuring 
+* 0.5.0
+    * Add a `learn_password`, now user can easier learn it. For example `a - apple, U - USA`
+    * More `__doc__`'s  for god of docs
+* 0.4.1
+    * Now u can choose which `txt` file bot sends to u
+* 0.4.0 
+    * Now user can save `pass.txt` in exact file that he wants (only need to write a way to this file)
+    * Now if user didnt use special command for `comments` (as `-len`) password will not contain `//` 
+* 0.3.0
+    * Add `readme.md` and `requirements.txt`
+    
+* 0.2.2
+    * Add `param` for comments. `-len`: length of the pass, `-time`: creation date
     * Add `__doc__` to whole `funs` into the code
-* 0.2.0.1 - Add a folders for `io` and `logic`
+* 0.2.0.1
+    * Add a folders for `io` and `logic`
     * Add `comments` to the password and 1 `unitTest` for that
-* 0.2.0 - Add `discord bot` and `.env` to `.gitigrone`
-* 0.1.3 - separate `funs` to `logic` and `io`
-* 0.1.2 - Add `unitTests` and `__name == '__main__'` for whole files
-* 0.1.1 - Add `.gitignore` and `comments` for some funs and `main()`
-* 0.1.0 - Initial release
+* 0.2.0
+    * Add `discord bot` and `.env` to `.gitigrone`
+* 0.1.3
+    * separate `funs` to `logic` and `io`
+* 0.1.2
+    * Add `unitTests` and `__name == '__main__'` for whole files
+* 0.1.1
+    * Add `.gitignore` and `comments` for some funs and `main()`
+* 0.1.0
+    * Initial release

@@ -4,46 +4,60 @@ from tune_password.tune_io import remove_excess_password_io, comments_to_passwor
 from save_password.save_io import save_into_txt_io
 from learn_password.learn_io import learn_io
 from what_send_ds.what_send_io import what_send_ds_io
-from send_to_ds import bot
-
-
-''' user will able to change smth on each stage, coming soon'''
-'''
-def change_check(user_input: str):
-    if user_input == '-change' and in change_str:
-        res = change_str.strip().split(' ')
-        for count, item in enumerate(res):
-            print(count, item)
-
-        change_it()
-    if user_input == '-change' and not in change_str:
-        print('U cant change rn! complete this input')
-
-
-def change_it():
-    print('fuck yeah!')
-
-change_str = 'password_length tag tag_password password_wo_slash_underscore comment_password txt_path res_path'
-
-def main():
-    password_length = input()
-    tag = str(input())
-    tag_password = tag + "_" + secrets.token_urlsafe(3 * password_length)
-    password_wo_slash_underscore = remove_excess_password_io(tag_password)[:password_length]
-    comment_password = comments_to_password_io(password_wo_slash_underscore)
-    txt_path = save_into_txt_io(comment_password)
-    res_path = what_send_ds_io(txt_path)
-    bot(res_path)
-
-'''
+from ds_bot.send_to_ds import bot
 
 
 def main():
     """
-    main part (the body/core) which contains whole funs
+    Heres user choose what he wanna do
+    1. creating a new password, look at create_password()
+    2. Removing _ and - from the password -> dota_123hn-asdf-2 / dota123hnasdf2
+    3. "special code" for password (to learn it) -> l2U / loop 2 USA
+    4. Adding some comments to password -> "password" my pass for dota // length - 30 (-len)
+    5. Saving password to .txt file
+    """
+    switcher = {
+        '1': create_password,
+        '2': remove_excess_password_io,
+        '3': learn_io,
+        '4': comments_to_password_io,
+        '5': save_into_txt_io,
+    }
+
+    print('\nWtire digits (together) in ascending order:\n'
+          'Rememember, u cant make 1 + smth else, u choose  ONLY 1st or 2-5 funs\n'
+          '1: create_password\n'
+          '2: remove_excess\n'
+          '3: learn\n'
+          '4: add_comments\n'
+          '5: save_into_txt')
+
+    # step which program should do
+    actions = str(input())
+
+    # we need to input our password and make smth with that
+    if actions != '1':
+        print('\nwrite your password\n')
+        global password
+        password = str(input())
+
+        for i in range(len(actions)):
+            # exception cuz in learn method we dont save anything, we dont need this "special code"
+            if actions[i] != '3': password = switcher[actions[i]](password)
+            else: switcher[actions[i]](password)
+
+    # we gonna create a new one, so we dont need password = input()
+    elif actions == '1':
+        for i in range(len(actions)):
+            switcher[actions[i]]()
+
+
+def create_password():
+    """
+    Create a  new password
 
     1. choosing length ->  ∈[1; +∞], ∈ ℤ
-    2. Writing tag -> tag_password -> dota_SDAjnweg[odsfGB123123]
+    2. Writing tag -> tag_password -> dota_SDAjnweg-odsfGB123123
     3. Removing _ and - from the password -> dota_123hn-asdf-2 / dota123hnasdf2
     4. "special code" for password (to learn it) -> l2U / loop 2 USA
     5. Adding some comments to password -> "password" my pass for dota // length - 30 (-len)
