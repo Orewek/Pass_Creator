@@ -24,7 +24,8 @@ def whole_path_list(pass_ways: str):
 def choose_the_path(pass_ways: str, what_we_need: int):
     """
     return a exact path that user want
-    pass_ways - file.txt with whole ways to passwords.txt (user can make a few)
+    pass_ways - file.txt with whole ways to passwords.txt
+    (user can make a few .txt files with passwords)
     """
     with open(pass_ways, 'r') as f:
         res = f.read().splitlines()
@@ -34,5 +35,7 @@ def choose_the_path(pass_ways: str, what_we_need: int):
                 return re
 
 
+'''
 if __name__ == '__main__':
     print('U cant run this file as main')
+'''
