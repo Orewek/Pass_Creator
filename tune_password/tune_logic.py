@@ -50,4 +50,4 @@ def add_comments(password: str, comment: str) -> str:
 
 
 if __name__ == '__main__':
-    print('u cant run this file as main!')
+    print('You cant run this file as main!')

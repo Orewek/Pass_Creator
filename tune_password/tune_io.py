@@ -8,7 +8,8 @@ def remove_excess_password_io(password: str) -> str:
     """
     items = ['_', '-']
 
-    print(f'\nchoose and write symbobls from {items} without spaces and commas that we need to delete \n'
+    print(f'\nchoose and write symbobls from {items}'
+          f'without spaces and commas that we need to delete \n'
           f'if u dont need to press enter')
 
     symbols = input()
@@ -30,13 +31,14 @@ def remove_excess_password_io(password: str) -> str:
 def comments_to_password_io(password: str) -> str:
     """
     adding comment to the password
-    it can help u have a few accs in 1 store
+    it can help you have a few accs in 1 store
     can add some info about password; (-time: creation data), (-len: length)
     """
-    print('\nU can add some comments to password, it can help u if: \n'
-          'U have a few accs in 1 app (steam for example). U wanna see the creation data, length etc. \n'
-          'firsly write u commentary, after that (-time: creation data), (-len: length) \n'
-          'press enter u dont want to have it')
+    print('\nYou can add some comments to password, it can help you if: \n'
+          'You have a few accs in 1 app and want to see more information\n'
+          'Write your commentary, also you can use this commands:\n'
+          '(-time: creation data), (-len: length) \n'
+          'press enter if you dont want to have it')
 
     comment = str(input())
     if comment is not None:
@@ -46,4 +48,4 @@ def comments_to_password_io(password: str) -> str:
 
 
 if __name__ == '__main__':
-    print('u cant run this file as main!')
+    print('You cant run this file as main!')

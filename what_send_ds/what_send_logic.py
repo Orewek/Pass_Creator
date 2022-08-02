@@ -3,7 +3,8 @@ pass_ways = pathlib.Path(__file__).parent / 'pass_ways.txt'
 
 
 def add_new_path(file_path: str, path: str):
-    """Add a path entry to a text file. If the path already exists do nothing."""
+    """Add a path entry to a text file.
+       If the path already exists do nothing."""
     with open(file_path, "a+") as file:
         file.seek(0)
         if path not in file.read().splitlines():

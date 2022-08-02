@@ -13,7 +13,7 @@ def main():
     1. creating a new password, look at create_password()
     2. Removing _ and - from the password -> dota_123hn-asdf-2 / dota123hnasdf2
     3. "special code" for password (to learn it) -> l2U / loop 2 USA
-    4. Adding some comments to password -> "password" my pass for dota // length - 30 (-len)
+    4. Adding some comments to password -> "password" // length - 30 (-len)
     5. Saving password to .txt file
     6. Turning on the discord bot which can send this .txt to the chat
     """
@@ -27,7 +27,8 @@ def main():
     }
 
     print('\nWtire digits (together) in ascending order:\n'
-          'Rememember, u cant make 1 + smth else, u choose  ONLY 1st or 2-6 funs\n'
+          'Rememember, You cant make 1 + smth else'
+          'u choose  ONLY 1st or 2-6 funs\n'
           '1: create_password\n'
           '2: remove_excess\n'
           '3: learn\n'
@@ -44,9 +45,13 @@ def main():
         password = str(input())
 
         for i in range(len(actions)):
-            # exception cuz in learn method we dont save anything, we dont need this "special code"
-            if actions[i] != '3': password = switcher[actions[i]](password)
-            else: switcher[actions[i]](password)
+            # exception cuz:
+            # 1. in learn method we dont save anything
+            # 2. we dont need this "special code"
+            if actions[i] != '3':
+                password = switcher[actions[i]](password)
+            else:
+                switcher[actions[i]](password)
 
     # we gonna create a new one, so we dont need password = input()
     elif actions == '1':
@@ -62,7 +67,7 @@ def create_password():
     2. Writing tag -> tag_password -> dota_SDAjnweg-odsfGB123123
     3. Removing _ and - from the password -> dota_123hn-asdf-2 / dota123hnasdf2
     4. "special code" for password (to learn it) -> l2U / loop 2 USA
-    5. Adding some comments to password -> "password" my pass for dota // length - 30 (-len)
+    5. Adding some comments to password -> "password" // length - 30 (-len)
     6. Saving password to .txt file
     7. Turning on the discord bot which can send this .txt to the chat
     """
@@ -83,7 +88,8 @@ def create_password():
     print(f'\npassword was created successfully! the pass is - {password}')
 
     # turns letters to words, that helps to remember the password
-    if len(password) <= 25: learn_io(password)
+    if len(password) <= 25:
+        learn_io(password)
 
     password = comments_to_password_io(password)
     print(f'\n{password}\n')
