@@ -82,7 +82,9 @@ def create_password():
     print("\nwrite for which acc/game u will use it")
     tag = str(input())
 
-    tag_password = tag + "_" + secrets.token_urlsafe(3 * password_length)
+    # adding tag thing. Made that if/else for this "_" thing 
+    if tag is not None: tag_password = tag + "_" + secrets.token_urlsafe(3 * password_length)
+    else: tag_password = secrets.token_urlsafe(3 * password_length)
     password = remove_excess_password_io(tag_password)[:password_length]
 
     print(f'\npassword was created successfully! the pass is - {password}')

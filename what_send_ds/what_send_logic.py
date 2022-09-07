@@ -36,7 +36,6 @@ def choose_the_path(pass_ways: str, what_we_need: int):
                 return re
 
 
-'''
+
 if __name__ == '__main__':
     print('U cant run this file as main')
-'''

@@ -27,7 +27,8 @@ def save_into_txt_io(password: str):
         user_path_save(password, txt_path)
         print(f'Your password was succesfully saved into {txt_path}')
 
-    return txt_path
+    if txt_path is not None: return txt_path
+    return default_path
 
 
 if __name__ == '__main__':
