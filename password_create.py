@@ -6,6 +6,8 @@ from learn_password.learn_io import learn_io
 from what_send_ds.what_send_io import what_send_ds_io
 from ds_bot.send_to_ds import bot
 
+from unit_tests.type_check import action_check
+
 
 def main():
     """
@@ -39,6 +41,10 @@ def main():
     actions = str(input())
 
     # we need to input our password and make smth with that
+    while action_check(actions) is False:
+        print('This command doesnt exist, try again or close the program')
+        actions = str(input())
+
     if actions != '1':
         print('\nwrite your password\n')
         global password
@@ -73,7 +79,14 @@ def create_password():
     """
     # choosing length for the password
     print("which len do we need")
-    password_length = int(input())
+    password_length = input()
+
+    while password_length.isdigit() is False:
+        print('You cant type a letters in password length, try again')
+        password_length = input()
+    password_length = int(password_length)
+
+
     # change_check(password_length)
 
     # writing the game/for which for we will use this pass
