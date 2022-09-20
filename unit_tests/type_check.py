@@ -7,8 +7,5 @@ def action_check(actions: str):
     return False
 
 
-
-
-
 if __name__ == '__main__':
     print('You cant run this file as main')
