@@ -184,6 +184,7 @@ client.run(ds_token)
     * Now User can do only a few steps (for example add a comment) for `already` created password
     * Project restructuring 
     * Making a 80 symbols line code
+    * Add more type checks and fix a bug about `txt_path` save
 * 0.5.0
     * Add a `learn_password`, now user can easier learn it. For example `a - apple, U - USA`
     * More `__doc__`'s  for god of docs
