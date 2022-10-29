@@ -1,10 +1,15 @@
-import unittest
 import filecmp
+import unittest
+
 from pathlib import Path
-from tune_password.tune_logic import tune_special_symbols, sanitize_password, add_comments
-from save_password.save_logic import default_save, user_path_save
-from what_send_ds.what_send_logic import add_new_path, whole_path_list, choose_the_path
+
 from learn_password.learn_logic import letter_to_word
+
+from save_password.save_logic import default_save, user_path_save
+
+from tune_password.tune_logic import add_comments, sanitize_password, tune_special_symbols
+
+from what_send_ds.what_send_logic import add_new_path, choose_the_path, whole_path_list
 
 
 class TestPassword(unittest.TestCase):

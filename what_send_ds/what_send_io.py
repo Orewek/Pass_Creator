@@ -1,5 +1,6 @@
 import pathlib
-from what_send_ds.what_send_logic import add_new_path, whole_path_list, choose_the_path
+
+from what_send_ds.what_send_logic import add_new_path, choose_the_path, whole_path_list
 pass_ways = pathlib.Path(__file__).parent / 'pass_ways.txt'
 
 

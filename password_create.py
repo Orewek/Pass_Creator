@@ -1,12 +1,17 @@
-import secrets
 import os
-from tune_password.tune_io import remove_excess_password_io, comments_to_password_io
-from save_password.save_io import save_into_txt_io
-from learn_password.learn_io import learn_io
-from what_send_ds.what_send_io import what_send_ds_io
+import secrets
+
 from ds_bot.send_to_ds import bot
 
+from learn_password.learn_io import learn_io
+
+from save_password.save_io import save_into_txt_io
+
+from tune_password.tune_io import comments_to_password_io, remove_excess_password_io
+
 from unit_tests.type_check import action_check
+
+from what_send_ds.what_send_io import what_send_ds_io
 
 
 def main():
@@ -25,7 +30,7 @@ def main():
         '3': learn_io,
         '4': comments_to_password_io,
         '5': save_into_txt_io,
-        '6': bot
+        '6': bot,
     }
 
     print('\nWtire digits (together) in ascending order:\n'
