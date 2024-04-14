@@ -1,3 +1,3 @@
-from password_create import main
+from password_create import main, password
 """ Use this file to read some docs, even this one!"""
-print(main.__doc__)
+print(password.__doc__)

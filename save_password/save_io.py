@@ -1,7 +1,8 @@
 from save_password.save_logic import default_save, user_path_save
+from typing import Union
 
 
-def save_into_txt_io(password: str):
+def save_into_txt_io(password: str) -> str:
     """
     as the default password will be saved into C:{back_slash}passwords.txt
     otherwise password will be saved into user path.
@@ -13,11 +14,13 @@ def save_into_txt_io(password: str):
 
     default_path = r'C:\passwords.txt'
 
-    print(f'now you can choose where you want to save your password\n'
-          f'write path to a file, and program will save your password into it\n'
-          f'Press enter and program will create and save a file at {default_path}\n')
+    print(f"""
+           now you can choose where you want to save your password
+           write path to a file, and program will save your password into it
+           Press enter and program will create and save a file at {default_path}
+           """)
 
-    txt_path = input() or None
+    txt_path: Union[str, None] = input() or None
 
     if txt_path is None:
         default_save(password, default_path)
@@ -27,7 +30,8 @@ def save_into_txt_io(password: str):
         user_path_save(password, txt_path)
         print(f'Your password was succesfully saved into {txt_path}')
 
-    if txt_path is not None: return txt_path
+    if txt_path is not None:
+        return txt_path
     return default_path
 
 

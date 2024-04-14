@@ -18,8 +18,8 @@ def whole_path_list(pass_ways: str):
     """
     with open(pass_ways, 'r') as f:
         res = f.read().splitlines()
-        for count, re in enumerate(res):
-            print(count, re)
+        for count, item in enumerate(res):
+            print(count, item)
 
 
 def choose_the_path(pass_ways: str, what_we_need: int):
@@ -31,9 +31,9 @@ def choose_the_path(pass_ways: str, what_we_need: int):
     with open(pass_ways, 'r') as f:
         res = f.read().splitlines()
 
-        for count, re in enumerate(res):
+        for count, item in enumerate(res):
             if count == what_we_need:
-                return re
+                return item
 
 
 if __name__ == '__main__':

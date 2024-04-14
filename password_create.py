@@ -9,7 +9,7 @@ from save_password.save_io import save_into_txt_io
 
 from tune_password.tune_io import comments_to_password_io, remove_excess_password_io
 
-from unit_tests.type_check import action_check
+from unit_tests.type_check import action_check, check_int
 
 from what_send_ds.what_send_io import what_send_ds_io
 
@@ -24,7 +24,7 @@ def main():
     5. Saving password to .txt file
     6. Turning on the discord bot which can send this .txt to the chat
     """
-    switcher = {
+    switcher: dict = {
         '1': create_password,
         '2': remove_excess_password_io,
         '3': learn_io,
@@ -33,34 +33,36 @@ def main():
         '6': bot,
     }
 
-    print('\nWtire digits (together) in ascending order:\n'
-          'Rememember, You cant make 1 + smth else'
-          'u choose  ONLY 1st or 2-6 funs\n'
-          '1: create_password\n'
-          '2: remove_excess\n'
-          '3: learn\n'
-          '4: add_comments\n'
-          '5: save_into_txt')
+    print("""
+          Wtire digits (together) in ascending order:
+          Rememember, You cant make 1 + smth else
+          u choose  ONLY 1st or 2-6 funs
+          1: create_password
+          2: remove_excess
+          3: learn
+          4: add_comments
+          5: save_into_txt
+          """)
 
     # step which program should do
-    actions = str(input())
+    actions: str = str(input())
 
     # we need to input our password and make smth with that
     while action_check(actions) is False:
         print('This command doesnt exist, try again or close the program')
-        actions = str(input())
+        actions: str = str(input())
 
     if actions != '1':
         print('\nwrite your password\n')
         global password
-        password = str(input())
+        password: str = str(input())
 
         for i in range(len(actions)):
             # exception cuz:
             # 1. in learn method we dont save anything
             # 2. we dont need this "special code"
             if actions[i] != '3':
-                password = switcher[actions[i]](password)
+                password: str = switcher[actions[i]](password)
             else:
                 switcher[actions[i]](password)
 
@@ -84,12 +86,8 @@ def create_password():
     """
     # choosing length for the password
     print("which len do we need")
-    password_length = input()
-
-    while password_length.isdigit() is False:
-        print('You cant type a letters in password length, try again')
-        password_length = input()
-    password_length = int(password_length)
+    password_length: int = check_int(input(),
+                                     "You cant type a letters in password length, try again")
 
     # change_check(password_length)
 
@@ -97,12 +95,13 @@ def create_password():
     # we make it for ctrl + f in file
 
     print("\nwrite for which acc/game u will use it")
-    tag = str(input())
+    tag: str = str(input())
 
     # adding tag thing. Made that if/else for this "_" thing
-    if tag is not None: tag_password = tag + "_" + secrets.token_urlsafe(3 * password_length)
-    else: tag_password = secrets.token_urlsafe(3 * password_length)
-    password = remove_excess_password_io(tag_password)[:password_length]
+    tag_password: str = secrets.token_urlsafe(3 * password_length)
+    if tag is not None:
+        tag_password: str = tag + "_" + secrets.token_urlsafe(3 * password_length)
+    password: str = remove_excess_password_io(tag_password)[:password_length]
 
     print(f'\npassword was created successfully! the pass is - {password}')
 
@@ -110,14 +109,14 @@ def create_password():
     if len(password) <= 25:
         learn_io(password)
 
-    password = comments_to_password_io(password)
+    password: str = comments_to_password_io(password)
     print(f'\n{password}\n')
 
     # saving this password in our .txt file
-    txt_path = save_into_txt_io(password)
+    txt_path: str = save_into_txt_io(password)
 
     # choosing which path should bot send to ds
-    res_path = what_send_ds_io(txt_path)
+    res_path: str = what_send_ds_io(txt_path)
 
     '''
     # imma do this later

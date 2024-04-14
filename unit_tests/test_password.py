@@ -19,29 +19,29 @@ class TestPassword(unittest.TestCase):
 
     # MAKING A PASSWORD BLOCK
     def test_tune_special_symbols(self):
-        passw = '63fFZ-6wUnj_C_fDSF4A-AkHoe5nq0-A'
-        pass_underscore_dash = '63fFZ6wUnjCfDSF4AAkHoe5nq0A'
+        passw: str = '63fFZ-6wUnj_C_fDSF4A-AkHoe5nq0-A'
+        pass_underscore_dash: str = '63fFZ6wUnjCfDSF4AAkHoe5nq0A'
 
         self.assertEqual(tune_special_symbols(passw, '_-'), pass_underscore_dash)
 
     def test_sanitize_password(self):
-        passw = '63fFZ-6wUnj_C_T2uM9KGD54AQpa1NrL2n7-0J15q2p5Xs5s5Zsn1ak5Inq0-A'
-        pass_digits_lower = 'FFZ-WUNJ_C_TUMKGDAQPANRLN-JQPXSSZSNAKINQ-A'
+        passw: str = '63fFZ-6wUnj_C_TuM9KGDAQpa1NrL2n7-0J15q2pXs5s5Zsnak5Inq0-A'
+        pass_digits_lower: str = 'FFZ-WUNJ_C_TUMKGDAQPANRLN-JQPXSSZSNAKINQ-A'
 
         self.assertEqual(sanitize_password(passw, 'diglow'), pass_digits_lower)
 
     def test_add_comments(self):
-        password = 'STEAMX1RWIQ6FWN1ZJZ'
-        comment = 'barak -lenobama'
-        password_with_comment = 'STEAMX1RWIQ6FWN1ZJZ barak obama // length - 19'
+        password: str = 'STEAMX1RWIQ6F'
+        comment: str = 'barak -lenobama'
+        password_with_comment: str = 'STEAMX1RWIQ6F barak obama // length - 19'
 
         self.assertEqual(add_comments(password, comment), password_with_comment)
 
     # LEARN PASSWORD BLOCK
     def test_learn_letter_to_word(self):
-        password = 'dIhEapWDK'
-        res_should_be = 'drip IPHONE hulu EGG apple park WALMART DRIP KOREAN'
-        res_we_have = letter_to_word(password)
+        password: str = 'dhEapWDK'
+        res_should_be: str = 'drip hulu EGG apple park WALMART DRIP KOREAN'
+        res_we_have: str = letter_to_word(password)
         self.assertEqual(res_should_be, res_we_have)
 
     # SAVE A PASSWORD BLOCK

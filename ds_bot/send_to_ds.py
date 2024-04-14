@@ -3,7 +3,7 @@ import discord
 from ds_bot.dstoken import ds_token
 
 
-def bot(txt_path: str):
+def bot(txt_path: str) -> None:
     """turning on the bot, sending the .txt"""
     client = discord.Client()
 

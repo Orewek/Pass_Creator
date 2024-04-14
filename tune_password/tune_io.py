@@ -1,4 +1,5 @@
 from tune_password.tune_logic import add_comments, sanitize_password, tune_special_symbols
+from typing import Union
 
 
 def remove_excess_password_io(password: str) -> str:
@@ -6,24 +7,28 @@ def remove_excess_password_io(password: str) -> str:
     firstly removes _ and - for the password
     secondly change lower => upper; upper => lower; removes digits
     """
-    items = ['_', '-']
+    items: list = ['_', '-']
 
-    print(f'\nchoose and write symbobls from {items}'
-          f'without spaces and commas that we need to delete \n'
-          f'if u dont need to press enter')
+    print(f"""
+          choose and write symbobls from {items}
+          without spaces and commas that we need to delete
+          if u dont need to press enter
+          """)
 
-    symbols = input()
+    symbols: str = input()
     if symbols is not None:
-        password = tune_special_symbols(password, symbols)
+        password: str = tune_special_symbols(password, symbols)
 
-    items = ['up', 'low', 'dig']
-    print(f'\nchoose and write words from {items} that we need to delete \n'
-          f'if u dont need to press enter \n'
-          f'for example: low deleting whole lower letters from the password')
+    items: list = ['up', 'low', 'dig']
+    print(f"""
+          choose and write words from {items} that we need to delete
+          if u dont need to press enter
+          for example: low deleting whole lower letters from the password
+          """)
 
-    symbols = input()
+    symbols: Union[str, None] = input()
     if symbols is not None:
-        password = sanitize_password(password, symbols.lower())
+        password: str = sanitize_password(password, symbols.lower())
 
     return password
 
@@ -34,13 +39,15 @@ def comments_to_password_io(password: str) -> str:
     it can help you have a few accs in 1 store
     can add some info about password; (-time: creation data), (-len: length)
     """
-    print('\nYou can add some comments to password, it can help you if: \n'
-          'You have a few accs in 1 app and want to see more information\n'
-          'Write your commentary, also you can use this commands:\n'
-          '(-time: creation data), (-len: length) \n'
-          'press enter if you dont want to have it')
+    print("""
+          You can add some comments to password, it can help you if:
+          You have a few accs in 1 app and want to see more information
+          Write your commentary, also you can use this commands:
+          (-time: creation data), (-len: length)
+          press enter if you dont want to have it
+          """)
 
-    comment = str(input())
+    comment: Union[str, None] = input()
     if comment is not None:
         password = add_comments(password, comment)
 
