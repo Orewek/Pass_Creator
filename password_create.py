@@ -49,13 +49,11 @@ def main():
 
     # we need to input our password and make smth with that
     while action_check(actions) is False:
-        print('This command doesnt exist, try again or close the program')
-        actions: str = str(input())
+        actions: str = str(input('This command doesnt exist, try again or close the program'))
 
     if actions != '1':
-        print('\nwrite your password\n')
         global password
-        password: str = str(input())
+        password: str = str(input('\nwrite your password\n'))
 
         for i in range(len(actions)):
             # exception cuz:
@@ -85,8 +83,7 @@ def create_password():
     7. Turning on the discord bot which can send this .txt to the chat
     """
     # choosing length for the password
-    print("which len do we need")
-    password_length: int = check_int(input(),
+    password_length: int = check_int(input("which len do we need"),
                                      "You cant type a letters in password length, try again")
 
     # change_check(password_length)
@@ -94,8 +91,7 @@ def create_password():
     # writing the game/for which for we will use this pass
     # we make it for ctrl + f in file
 
-    print("\nwrite for which acc/game u will use it")
-    tag: str = str(input())
+    tag: str = str(input("\nwrite for which acc/game u will use it"))
 
     # adding tag thing. Made that if/else for this "_" thing
     tag_password: str = secrets.token_urlsafe(3 * password_length)

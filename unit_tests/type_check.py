@@ -12,8 +12,7 @@ def action_check(actions: str) -> bool:
 
 def check_int(variable: Union[int, str], text_error: str) -> int:
     while variable.isdigit() is False:
-        print(text_error)
-        variable: str = input()
+        variable: str = input(text_error)
 
     return int(variable)
 
