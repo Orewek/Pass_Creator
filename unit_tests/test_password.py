@@ -1,6 +1,5 @@
 import filecmp
 import unittest
-
 from pathlib import Path
 
 from learn_password.learn_logic import letter_to_word

@@ -13,9 +13,8 @@ def what_send_ds_io(text_path: str):
 
     # printing the whole numerated path-list
     whole_path_list(pass_ways)
-    print("Choose which file should bot send (write a number next to the path)")
 
     # user choosing which file should bot send into the discord
-    what_we_need = int(input())
+    what_we_need = int(input("Choose which file should bot send (write a number next to the path)"))
 
     return choose_the_path(pass_ways, what_we_need)

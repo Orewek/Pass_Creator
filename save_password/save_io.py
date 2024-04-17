@@ -1,5 +1,6 @@
-from save_password.save_logic import default_save, user_path_save
 from typing import Union
+
+from save_password.save_logic import default_save, user_path_save
 
 
 def save_into_txt_io(password: str) -> str:

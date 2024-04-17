@@ -49,7 +49,7 @@ def main():
 
     # we need to input our password and make smth with that
     while action_check(actions) is False:
-        actions: str = str(input('This command doesnt exist, try again or close the program'))
+        actions: str = str(input('This command doesnt exist, try again'))
 
     if actions != '1':
         global password
@@ -84,7 +84,7 @@ def create_password():
     """
     # choosing length for the password
     password_length: int = check_int(input("which len do we need"),
-                                     "You cant type a letters in password length, try again")
+                                     "Cant type letters in pass length, try again")
 
     # change_check(password_length)
 
@@ -96,7 +96,7 @@ def create_password():
     # adding tag thing. Made that if/else for this "_" thing
     tag_password: str = secrets.token_urlsafe(3 * password_length)
     if tag is not None:
-        tag_password: str = tag + "_" + secrets.token_urlsafe(3 * password_length)
+        tag_password: str = f'{tag}_{tag_password}'
     password: str = remove_excess_password_io(tag_password)[:password_length]
 
     print(f'\npassword was created successfully! the pass is - {password}')

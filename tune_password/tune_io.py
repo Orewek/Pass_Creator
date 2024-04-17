@@ -1,5 +1,6 @@
-from tune_password.tune_logic import add_comments, sanitize_password, tune_special_symbols
 from typing import Union
+
+from tune_password.tune_logic import add_comments, sanitize_password, tune_special_symbols
 
 
 def remove_excess_password_io(password: str) -> str:
