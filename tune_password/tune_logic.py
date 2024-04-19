@@ -8,6 +8,7 @@ def tune_special_symbols(password: str, chars: str) -> str:
     """
     for char in chars:
         password: str = password.replace(char, '')
+
     return password
 
 

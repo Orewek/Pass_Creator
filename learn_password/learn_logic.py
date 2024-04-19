@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 def letter_to_word(password: str) -> str:
     """ a list with the letters, which turns into the letters """
     switcher: dict = {
@@ -92,10 +95,7 @@ def letter_to_word(password: str) -> str:
         ' ': ' ',
     }
 
-    res: str = ''
-
-    for i in range(len(password)):
-        res += f'{switcher[password[i]]} '
+    res = ' '.join([switcher[password[i]] for i in range(len(password))])
 
     return res.strip()
 

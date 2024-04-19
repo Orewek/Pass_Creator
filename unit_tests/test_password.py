@@ -32,7 +32,7 @@ class TestPassword(unittest.TestCase):
     def test_add_comments(self):
         password: str = 'STEAMX1RWIQ6F'
         comment: str = 'barak -lenobama'
-        password_with_comment: str = 'STEAMX1RWIQ6F barak obama // length - 19'
+        password_with_comment: str = 'STEAMX1RWIQ6F barak obama // length - 13'
 
         self.assertEqual(add_comments(password, comment), password_with_comment)
 

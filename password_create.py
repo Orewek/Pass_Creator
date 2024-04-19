@@ -52,7 +52,6 @@ def main():
         actions: str = str(input('This command doesnt exist, try again'))
 
     if actions != '1':
-        global password
         password: str = str(input('\nwrite your password\n'))
 
         for i in range(len(actions)):
