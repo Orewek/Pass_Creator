@@ -33,19 +33,18 @@ def main():
         '6': bot,
     }
 
-    print("""
-          Wtire digits (together) in ascending order:
-          Rememember, You cant make 1 + smth else
-          u choose  ONLY 1st or 2-6 funs
-          1: create_password
-          2: remove_excess
-          3: learn
-          4: add_comments
-          5: save_into_txt
-          """)
-
     # step which program should do
-    actions: str = str(input())
+    actions: str = str(input(
+        """
+        Wtire digits (together) in ascending order:
+        Rememember, You cant make 1 + smth else
+        u choose  ONLY 1st or 2-6 funs
+        1: create_password
+        2: remove_excess
+        3: learn
+        4: add_comments
+        5: save_into_txt
+        """))
 
     # we need to input our password and make smth with that
     while action_check(actions) is False:

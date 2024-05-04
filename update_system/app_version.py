@@ -11,12 +11,11 @@ def check_version() -> None:
     current_git_version = get_git_version['version'][0]
  
     if current_git_version > app_version:
-        print(""" 
-              A new version has came out! Do u want to get it? Your whole files was already saved for this update!
-              Do u want to get it? Y/N
-              """)
 
-        txt: str = input()
+        txt: str = input(""" 
+                         A new version has came out! Do u want to get it? Your whole files was already saved for this update!
+                         Do u want to get it? Y/N
+                         """)
         if txt.lower() == 'y':
             $git clone https://github.com/Orewek/Pass_Creator.git
 

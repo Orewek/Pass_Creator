@@ -10,13 +10,12 @@ def remove_excess_password_io(password: str) -> str:
     """
     items: list = ['_', '-']
 
-    print(f"""
-          choose and write symbobls from {items}
-          without spaces and commas that we need to delete
-          if u dont need to press enter
-          """)
-
-    symbols: str = input()
+    symbols: str = input(
+        f"""
+         choose and write symbobls from {items}
+         without spaces and commas that we need to delete
+         if u dont need to press enter
+         """)
     if symbols is not None:
         password: str = tune_special_symbols(password, symbols)
 
@@ -40,15 +39,15 @@ def comments_to_password_io(password: str) -> str:
     it can help you have a few accs in 1 store
     can add some info about password; (-time: creation data), (-len: length)
     """
-    print("""
-          You can add some comments to password, it can help you if:
-          You have a few accs in 1 app and want to see more information
-          Write your commentary, also you can use this commands:
-          (-time: creation data), (-len: length)
-          press enter if you dont want to have it
-          """)
 
-    comment: Union[str, None] = input()
+    comment: Union[str, None] = input(
+        """
+        You can add some comments to password, it can help you if:
+        You have a few accs in 1 app and want to see more information
+        Write your commentary, also you can use this commands:
+        (-time: creation data), (-len: length)
+        press enter if you dont want to have it
+        """)
     if comment is not None:
         password = add_comments(password, comment)
 
