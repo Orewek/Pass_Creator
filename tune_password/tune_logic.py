@@ -7,7 +7,7 @@ def tune_special_symbols(password: str, chars: str) -> str:
     removes that by .replace
     """
     for char in chars:
-        password: str = password.replace(char, '')
+        password = password.replace(char, '')
 
     return password
 
@@ -17,11 +17,11 @@ def sanitize_password(password: str, types: str) -> str:
     changes lower => upper; upper => lower; deleting digits from the password
     """
     if 'up' in types:
-        password: str = password.lower()
+        password = password.lower()
     if 'low' in types:
-        password: str = password.upper()
+        password = password.upper()
     if 'dig' in types:
-        password: str = ''.join([i for i in password if not i.isdigit()])
+        password = ''.join([i for i in password if not i.isdigit()])
 
     return password
 
@@ -35,11 +35,11 @@ def add_comments(password: str, comment: str) -> str:
     data: str = ' // '
     creation_date = datetime.datetime.now()
     if '-time' in comment:
-        comment: str = comment.replace('-time', '')
+        comment = comment.replace('-time', '')
         data += f'creation date - {creation_date}' + ' // '
 
     if '-len' in comment:
-        comment: str = comment.replace('-len', '')
+        comment = comment.replace('-len', '')
         data += f'length - {len(password)}'
 
     if data != ' // ':

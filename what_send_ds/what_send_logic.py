@@ -2,7 +2,7 @@ import pathlib
 pass_ways = pathlib.Path(__file__).parent / 'pass_ways.txt'
 
 
-def add_new_path(file_path: str, path: str):
+def add_new_path(file_path: str, path: str) -> None:
     """Add a path entry to a text file.
        If the path already exists do nothing."""
     with open(file_path, "a+") as file:
@@ -11,7 +11,7 @@ def add_new_path(file_path: str, path: str):
             file.write(f'\n{path.strip()}')
 
 
-def whole_path_list(pass_ways: str):
+def whole_path_list(pass_ways: str) -> None:
     """
     numerate every path into the file
     pass_ways - file.txt with whole ways to passwords.txt (user can make a few)
@@ -21,7 +21,7 @@ def whole_path_list(pass_ways: str):
         print(*[f'{count}: {item}' for count, item in enumerate(res)], sep='\n')
 
 
-def choose_the_path(pass_ways: str, what_we_need: int):
+def choose_the_path(pass_ways: str, what_we_need: int) -> str:
     """
     return a exact path that user want
     pass_ways - file.txt with whole ways to passwords.txt
@@ -32,7 +32,10 @@ def choose_the_path(pass_ways: str, what_we_need: int):
 
         for count, item in enumerate(res):
             if count == what_we_need:
-                return item
+                return_index: str = item
+                break
+    
+    return return_index
 
 
 if __name__ == '__main__':

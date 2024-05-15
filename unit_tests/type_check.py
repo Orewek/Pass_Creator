@@ -1,18 +1,15 @@
-from typing import Union
-
-
 def action_check(actions: str) -> bool:
     """Maybe user wrote wrong digit or even a letter"""
     for i in range(1, 6 + 1):
-        actions: str = actions.replace(f'{i}', '')
+        actions = actions.replace(f'{i}', '')
     if actions == '':
         return True
     return False
 
 
-def check_int(variable: Union[int, str], text_error: str) -> int:
+def check_int(variable: int | str, text_error: str) -> int:
     while variable.isdigit() is False:
-        variable: str = input(text_error)
+        variable = input(text_error)
 
     return int(variable)
 

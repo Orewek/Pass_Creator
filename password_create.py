@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import secrets
 
@@ -14,9 +16,9 @@ from unit_tests.type_check import action_check, check_int
 from what_send_ds.what_send_io import what_send_ds_io
 
 
-def main():
+def main() -> None:
     """
-    Heres user choose what he wanna do
+    Heres user choose what he wanna do.
     1. creating a new password, look at create_password()
     2. Removing _ and - from the password -> dota_123hn-asdf-2 / dota123hnasdf2
     3. "special code" for password (to learn it) -> l2U / loop 2 USA
@@ -48,7 +50,7 @@ def main():
 
     # we need to input our password and make smth with that
     while action_check(actions) is False:
-        actions: str = str(input('This command doesnt exist, try again'))
+        actions = str(input('This command doesnt exist, try again'))
 
     if actions != '1':
         password: str = str(input('\nwrite your password\n'))
@@ -58,7 +60,7 @@ def main():
             # 1. in learn method we dont save anything
             # 2. we dont need this "special code"
             if actions[i] != '3':
-                password: str = switcher[actions[i]](password)
+                password = switcher[actions[i]](password)
             else:
                 switcher[actions[i]](password)
 
@@ -68,9 +70,9 @@ def main():
             switcher[actions[i]]()
 
 
-def create_password():
+def create_password() -> None:
     """
-    Create a  new password
+    Create a  new password.
 
     1. choosing length ->  ∈[1; +∞], ∈ ℤ
     2. Writing tag -> tag_password -> dota_SDAjnweg-odsfGB123123
@@ -94,7 +96,8 @@ def create_password():
     # adding tag thing. Made that if/else for this "_" thing
     tag_password: str = secrets.token_urlsafe(3 * password_length)
     if tag is not None:
-        tag_password: str = f'{tag}_{tag_password}'
+        tag_password = f'{tag}_{tag_password}'
+
     password: str = remove_excess_password_io(tag_password)[:password_length]
 
     print(f'\npassword was created successfully! the pass is - {password}')
@@ -103,7 +106,7 @@ def create_password():
     if len(password) <= 25:
         learn_io(password)
 
-    password: str = comments_to_password_io(password)
+    password = comments_to_password_io(password)
     print(f'\n{password}\n')
 
     # saving this password in our .txt file

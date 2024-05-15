@@ -4,7 +4,7 @@ from what_send_ds.what_send_logic import add_new_path, choose_the_path, whole_pa
 pass_ways = pathlib.Path(__file__).parent / 'pass_ways.txt'
 
 
-def what_send_ds_io(text_path: str):
+def what_send_ds_io(text_path: str) -> str:
     # path that user choosed to save
     path = text_path
 

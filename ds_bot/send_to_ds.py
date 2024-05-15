@@ -8,12 +8,12 @@ def bot(txt_path: str) -> None:
     client = discord.Client()
 
     @client.event
-    async def on_ready():
+    async def on_ready() -> None:
         # waiting when bot will log into discord
         print('We have logged in as {0.user}.'.format(client))
 
     @client.event
-    async def on_message(message):
+    async def on_message(message: any) -> None:
         if message.author == client.user:
             # waiting when user will type smth in chat
             return
