@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Main file that starts up the program, contains all func and tables."""
+
 
 import os
 import secrets

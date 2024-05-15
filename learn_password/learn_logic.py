@@ -1,98 +1,59 @@
+# -*- coding: utf-8 -*-
+"""Transfer each letter into word in password."""
+
 from functools import reduce
 
 
 def letter_to_word(password: str) -> str:
-    """ a list with the letters, which turns into the letters """
-    switcher: dict = {
-        'a': 'apple',
-        'b': 'bestbuy',
-        'c': 'coffee',
-        'd': 'drip',
-        'e': 'egg',
-        'f': 'fruit',
-        'g': 'golf',
-        'h': 'hulu',
-        'i': 'iphone',
-        'j': 'jack',
-        'k': 'korean',
-        'l': 'laptop',
-        'm': 'music',
-        'n': 'nut',
-        'o': 'omelet',
-        'p': 'park',
-        'q': 'queen',
-        'r': 'rope',
-        's': 'skype',
-        't': 'tokyo',
-        'u': 'usa',
-        'v': 'visa',
-        'w': 'walmart',
-        'x': 'xbox',
-        'y': 'yelp',
-        'z': 'zip',
+    """List with the letters, which turns into the letters.
+    
+    Args:
+    ----
+        password: User password
+    
+    Return:
+    ------
+        A string of words which was created
+        by transfer letter into word
+    
+    """
+    switcher: dict[str, str] = {
+        'a': 'apple',   'A': 'APPLE',
+        'b': 'bestbuy', 'B': 'BESTBUY',
+        'c': 'coffee',  'C': 'COFFEE',
+        'd': 'drip',    'D': 'DRIP',
+        'e': 'egg',     'E': 'EGG',
+        'f': 'fruit',   'F': 'FRUIT',
+        'g': 'golf',    'G': 'GOLF',
+        'h': 'hulu',    'H': 'HULU',
+        'i': 'iphone',  'I': 'IPHONE',
+        'j': 'jack',    'J': 'JACK',
+        'k': 'korean',  'K': 'KOREAN',
+        'l': 'laptop',  'L': 'LAPTOP',
+        'm': 'music',   'M': 'MUSIC',
+        'n': 'nut',     'N': 'NUT',
+        'o': 'omelet',  'O': 'OMELET',
+        'p': 'park',    'P': 'PARK',
+        'q': 'queen',   'Q': 'QUEEN',
+        'r': 'rope',    'R': 'ROPE',
+        's': 'skype',   'S': 'SKYPE',
+        't': 'tokyo',   'T': 'TOKYO',
+        'u': 'usa',     'U': 'USA',
+        'v': 'visa',    'V': 'VISA',
+        'w': 'walmart', 'W': 'WALMART',
+        'x': 'xbox',    'X': 'XBOX',
+        'y': 'yelp',    'Y': 'YELP',
+        'z': 'zip',     'Z': 'ZIP',
 
-        'A': 'APPLE',
-        'B': 'BESTBUY',
-        'C': 'COFFEE',
-        'D': 'DRIP',
-        'E': 'EGG',
-        'F': 'FRUIT',
-        'G': 'GOLF',
-        'H': 'HULU',
-        'I': 'IPHONE',
-        'J': 'JACK',
-        'K': 'KOREAN',
-        'L': 'LAPTOP',
-        'M': 'MUSIC',
-        'N': 'NUT',
-        'O': 'OMELET',
-        'P': 'PARK',
-        'Q': 'QUEEN',
-        'R': 'ROPE',
-        'S': 'SKYPE',
-        'T': 'TOKYO',
-        'U': 'USA',
-        'V': 'VISA',
-        'W': 'WALMART',
-        'X': 'XBOX',
-        'Y': 'YELP',
-        'Z': 'ZIP',
+        '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
+        '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
 
-        '0': '0',
-        '1': '1',
-        '2': '2',
-        '3': '3',
-        '4': '4',
-        '5': '5',
-        '6': '6',
-        '7': '7',
-        '8': '8',
-        '9': '9',
-
-        '-': '-',
-        '~': '~',
-        '#': '#',
-        '&': '&',
-        '@': '@',
-        '{': '{',
-        '}': '}',
-        '+': '+',
-        ')': ')',
-        ':': ':',
-        '!': '!',
-        '=': '=',
-        '*': '*',
-        '_': '_',
-        '%': '%',
-        '<': '<',
-        '>': '>',
-        '$': '$',
-        '|': '|',
-        '[': '[',
-        ']': ']',
-        '^': '^',
-        '?': '?',
-        ' ': ' ',
+        '-': '-', '~': '~', '#': '#', '&': '&',
+        '@': '@', '{': '{', '}': '}', '+': '+',
+        ')': ')', ':': ':', '!': '!', '=': '=',
+        '*': '*', '_': '_', '%': '%', '<': '<',
+        '>': '>', '$': '$', '|': '|', '[': '[',
+        ']': ']', '^': '^', '?': '?', ' ': ' ',
     }
 
     res = ' '.join([switcher[password[i]] for i in range(len(password))])

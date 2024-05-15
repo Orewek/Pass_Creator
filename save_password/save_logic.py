@@ -1,9 +1,16 @@
+# -*- coding: utf-8 -*-
+"""File contains logic of functions, which saves the password into .txt file."""
 def default_save(password: str, default_path: str) -> None:
     """
-    adding a new password to the default path file
+    Add a new password to the default path file.
     default_path = r'C:[back slash]passwords.txt'
+
+    Args:
+    ----
+        password: User password
+        default_path: path where to save a password from the code
     """
-    with open(default_path, "a+") as f:
+    with open(default_path, "a+", encoding="UTF-8") as f:
         lines = f.readlines()
         if len(lines) == 0:
             f.write(f"{password}\n")
@@ -14,9 +21,16 @@ def default_save(password: str, default_path: str) -> None:
 
 
 def user_path_save(password: str, txt_path: str) -> None:
-    """adding a new password to a user-path file"""
+    """
+    Add a new password to a user-path file.
+    
+    Args:
+    ----
+        password: User password
+        txt_path: User txt path where to save a password
+    """
     path = rf'{txt_path}'
-    with open(path, "a+") as f:
+    with open(path, "a+", encoding="UTF-8") as f:
         lines = f.readlines()
         if len(lines) == 0:
             f.write(f"{password}\n")

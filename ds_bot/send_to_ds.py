@@ -1,10 +1,21 @@
+# -*- coding: utf-8 -*-
+"""
+Turn on the discord bot.
+Send the path to txt file
+Work with user requests in chat
+"""
 import discord
 
 from ds_bot.dstoken import ds_token
 
 
 def bot(txt_path: str) -> None:
-    """turning on the bot, sending the .txt"""
+    """Turn on the bot, sending the .txt.
+
+    Args:
+    ----
+        txt_path: path to our txt file with passwords
+    """
     client = discord.Client()
 
     @client.event

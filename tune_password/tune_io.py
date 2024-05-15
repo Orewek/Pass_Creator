@@ -1,10 +1,22 @@
+# -*- coding: utf-8 -*-
+"""
+Remove _ and - from a password.
+Add Comment to the password
+"""
 from tune_password.tune_logic import add_comments, sanitize_password, tune_special_symbols
 
 
 def remove_excess_password_io(password: str) -> str:
-    """
-    firstly removes _ and - for the password
+    """Firstly removes _ and - for the password.
     secondly change lower => upper; upper => lower; removes digits
+
+    Args:
+    ----
+        password: User password
+    
+    Return:
+    ------
+        password: User password
     """
     items: list = ['_', '-']
 
@@ -33,12 +45,18 @@ def remove_excess_password_io(password: str) -> str:
 
 
 def comments_to_password_io(password: str) -> str:
-    """
-    adding comment to the password
+    """Add comment to the password.
     it can help you have a few accs in 1 store
     can add some info about password; (-time: creation data), (-len: length)
-    """
 
+    Args:
+    ----
+        password: User password
+    
+    Return:
+    ------
+        password: User password
+    """
     comment: str | None = input(
         """
         You can add some comments to password, it can help you if:

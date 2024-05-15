@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+File with unittests.
+"""
 import filecmp
 import unittest
 from pathlib import Path
@@ -12,9 +16,7 @@ from what_send_ds.what_send_logic import add_new_path, choose_the_path, whole_pa
 
 
 class TestPassword(unittest.TestCase):
-    """
-    just UnitTests
-    """
+    """Just UnitTests."""
 
     # MAKING A PASSWORD BLOCK
     def test_tune_special_symbols(self):
@@ -49,7 +51,7 @@ class TestPassword(unittest.TestCase):
         def_path_end = Path(__file__).parent / r'default_file_test\default_save_end.txt'
         password = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3'
 
-        open(def_path_start, "w").close()
+        open(def_path_start, "w", encoding="UTF-8").close()
 
         # file 1 *working with it
         # file 2 *already has the pass inside*
@@ -62,7 +64,7 @@ class TestPassword(unittest.TestCase):
         user_path_end = Path(__file__).parent / r'user_path_save_test\user_save_end.txt'
         password = 'STEAMX1RWIQ6FWN1ZJZXXHH7S6LZS3'
 
-        open(user_path_start, "w").close()
+        open(user_path_start, "w", encoding="UTF-8").close()
 
         # file 1 *working with it
         # file 2 *already has the pass inside*
@@ -77,7 +79,7 @@ class TestPassword(unittest.TestCase):
         save_pass_end = Path(__file__).parent / r'paths_to_txt_ds\test_pass_ways2.txt'
         path = r'D:\gabe\csgo\moment'
 
-        open(save_pass_start, "w").close()
+        open(save_pass_start, "w", encoding="UTF-8").close()
         add_new_path(save_pass_start, path)  # file 1
         add_new_path(save_pass_end, path)
 
